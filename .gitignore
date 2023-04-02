@@ -1,0 +1,10 @@
+*.pdf
+*.4tc
+*.aux
+*.bbl
+*.bib
+*.blg
+*.log
+*.out
+*.tmp
+*.xref
