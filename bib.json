@@ -1,0 +1,29 @@
+[
+    {
+        "name": "1807.04575",
+        "type": "misc",
+        "author": "Masakazu Ishihata and Takanori Maehara and Tomas Rigaux",
+        "title": "Algorithmic Meta-Theorems for Monotone Submodular Maximization",
+        "year": "2018",
+        "eprint": "arXiv:1807.04575"
+    },
+    {
+        "name": "jjv_priv_gen",
+        "type": "misc",
+        "author": "Tomas Rigaux and Jill-Jênn Vie and Sein Minn",
+        "title": "Privacy-Preserving Synthetic Educational Data Generation",
+        "year": "2022",
+        "howpublished": "Proceedings of EC-TEL 2022, in press",
+        "address": "https://hal.archives-ouvertes.fr/hal-03715416"
+    },
+    {
+        "name": "Vie2022VFM",
+        "type": "inproceedings",
+        "author": "Jill-Jênn Vie and Tomas Rigaux and Hisashi Kashima",
+        "langid": "english",
+        "title": "Variational Factorization Machines for Preference Elicitation in Large-Scale Recommender Systems",
+        "booktitle": "Proceedings of IEEE BigData 2022, in press",
+        "url": "https://jiji.cat/bigdata/vie2022vfm.pdf",
+        "year": "2022"
+    }
+]

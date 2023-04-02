@@ -28,13 +28,15 @@ def fand(s):
 
 parser = ArgumentParser(
     prog='CV Converter',
-    description='Converts `cv.json` to pdf or html'
+    description='Converts `cv.json` to pdf or html or `bib.json` to `cv.bib`'
 )
-parser.add_argument('format', nargs='?', default='pdf', help='Format to convert to. Either `pdf` or `html`')
+parser.add_argument('format', nargs='?', default='pdf', help='Format to convert to. Either `pdf`, `html` or `bib`')
 args = parser.parse_args()
 
 with open('cv.json', 'r') as f:
     cv = json.load(f)
+with open('bib.json', 'r') as f:
+    bib = json.load(f)
 
 if args.format == 'pdf':
     with open('cv.tex', 'w') as f:
@@ -83,11 +85,19 @@ if args.format == 'pdf':
             print('    \\cvitemwithcomment{' + lan['language'] + '}{' + lan['level'] + '}{' + lan['experience'] + '}')
 
         print(tex.snips['end'])
-if args.format == 'html':
+elif args.format == 'bib':
+    with open('cv.bib', 'w') as f:
+        sys.stdout = f
+        for entry in bib:
+            print(f'@{entry["type"]}{{{entry["name"]},')
+            for key in entry.keys():
+                if key not in ['type', 'name']:
+                    print(f'    {key} = {{{entry[key]}}},')
+            print('}')
+elif args.format == 'html':
     with open('cv.html', 'w') as f:
         sys.stdout = f
         import html
-        import tex
         print(html.sectionHead('Education'))
         for ed in cv['education']:
             print('    <tr>')
