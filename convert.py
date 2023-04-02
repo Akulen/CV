@@ -124,6 +124,32 @@ elif args.format == 'bib':
             print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {entry["title"]}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
             print('    </tr>')
         print(html.sectionEnd())
+
+    with open('pubs.html', 'w') as f:
+        sys.stdout = f
+        import html
+
+        entries = {}
+        for entry in bib:
+            if entry['year'] not in entries:
+                entries[entry['year']] = []
+            entries[entry['year']].append(entry)
+        for year in sorted(entries.keys(), reverse=True):
+            print(html.sectionHead(year))
+            for entry in entries[year]:
+                print('    <tr>')
+                url = None
+                if 'address' in entry:
+                    url = entry['address']
+                elif 'url' in entry:
+                    url = entry['url']
+                if url:
+                    print(f'      <th scope="row"><a href="{url}"><i class="fa-solid fa-file-pdf"></i></a></th>')
+                else:
+                    print(f'      <th scope="row">[{i}]</th>')
+                print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {entry["title"]}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
+                print('    </tr>')
+            print(html.sectionEnd())
 elif args.format == 'html':
     with open('cv.html', 'w') as f:
         sys.stdout = f
