@@ -26,6 +26,17 @@ def fand(s):
         return ""
     return ", " + s
 
+def oxfordcomma(s):
+    return s.replace(" and", ",", s.count(" and") - 1).replace(" and", ", and")
+
+def highlightme(s):
+    return s.replace("Tomas Rigaux", "<em>Tomas Rigaux</em>")
+
+def opt(d, k, pref="", em=False):
+    if k not in d or d[k] == "":
+        return ""
+    return ", " + pref + " " + (f'<em>{d[k]}</em>' if em else d[k])
+
 parser = ArgumentParser(
     prog='CV Converter',
     description='Converts `cv.json` to pdf or html or `bib.json` to `cv.bib`'
@@ -94,6 +105,25 @@ elif args.format == 'bib':
                 if key not in ['type', 'name']:
                     print(f'    {key} = {{{entry[key]}}},')
             print('}')
+
+    with open('biblio.html', 'w') as f:
+        sys.stdout = f
+        import html
+        print(html.sectionHead('Publications'))
+        for i, entry in enumerate(bib):
+            print('    <tr>')
+            url = None
+            if 'address' in entry:
+                url = entry['address']
+            elif 'url' in entry:
+                url = entry['url']
+            if url:
+                print(f'      <th scope="row"><a href="{url}">[{i}]</a></th>')
+            else:
+                print(f'      <th scope="row">[{i}]</th>')
+            print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {entry["title"]}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
+            print('    </tr>')
+        print(html.sectionEnd())
 elif args.format == 'html':
     with open('cv.html', 'w') as f:
         sys.stdout = f
@@ -148,10 +178,7 @@ elif args.format == 'html':
             print('    </tr>')
         print(html.sectionEnd())
 
-        print(html.sectionHead('Publications'))
-        # print(tex.snips['biblio'])
-        # print('\\bibliography{' + cv['bibliography'] + '}')
-        print(html.sectionEnd())
+        print("{% include 'biblio.html' %}")
 
         print(html.sectionHead('Language'))
         for lan in cv['language']:
@@ -160,5 +187,7 @@ elif args.format == 'html':
             print(f'      <td>{lan["level"]}<span class="experience">{lan["experience"]}</span></td>')
             print('    </tr>')
         print(html.sectionEnd())
+
+        print('''<p style="float: right"><a href="{{ url_for('static', filename='cv.pdf') }}" style="text-decoration: none;">Download</a> the pdf</p>''')
 else:
     raise NotImplementedError(f'{args.format} is not a valid format for this converter')

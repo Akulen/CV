@@ -1,5 +1,6 @@
 *.pdf
 *.html
+*.bib
 *.tex
 *.4tc
 *.aux

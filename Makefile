@@ -3,7 +3,7 @@ pdf: cv.tex cv.bib
 	bibtex cv
 	pdflatex cv.tex
 
-html:
+html: cv.bib
 	python convert.py html
 
 cv.tex:
