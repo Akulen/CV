@@ -3,6 +3,9 @@ pdf: cv.tex
 	bibtex cv
 	pdflatex cv.tex
 
+html:
+	python convert.py html
+
 cv.tex:
 	python convert.py
 
