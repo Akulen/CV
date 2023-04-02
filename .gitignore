@@ -1,4 +1,5 @@
 *.pdf
+*.tex
 *.4tc
 *.aux
 *.bbl
@@ -7,3 +8,4 @@
 *.out
 *.tmp
 *.xref
+__pycache__

@@ -1,0 +1,176 @@
+{
+    "profile": {
+        "firstName": "Tomas",
+        "lastName": "Rigaux",
+        "address": {
+            "road": "242 Montée des Spels",
+            "postCode": "04100",
+            "city": "Manosque",
+            "country": "France"
+        },
+        "phone": "+33~6~04~06~27~17",
+        "email": "tomas@rigaux.com",
+        "social": {
+            "github": "Akulen",
+            "scholar": "https://scholar.google.com/citations?hl=en&user=ZHOsepEAAAAJ"
+        }
+    },
+    "education": [
+        {
+            "years": "2016--2021",
+            "name": "Diplome de l'ENS (DENS)",
+            "place": "École normale supérieure",
+            "location": "Paris (ENS)"
+        },
+        {
+            "years": "2020",
+            "name": "Computer science Master II --- Mathematiques Vision et Apprentissage (MVA)",
+            "place": "École normale supérieure",
+            "location": "Paris (ENS)"
+        },
+        {
+            "years": "2018",
+            "name": "Computer science Master I",
+            "place": "École normale supérieure",
+            "location": "Paris (ENS)"
+        },
+        {
+            "years": "2017",
+            "name": "Computer science Bachelor",
+            "place": "École normale supérieure",
+            "location": "Paris (ENS)"
+        },
+        {
+            "years": "2016",
+            "name": "Admitted to the École normale supérieure, Paris (ENS)",
+            "place": "ranked 4th",
+            "location": ""
+        },
+        {
+            "years": "2014--2016",
+            "name": "Classes prépa MPSI-MP*",
+            "place": "Champollion",
+            "location": "Grenoble"
+        }
+    ],
+    "skills": {
+        "Programming": [
+            "C",
+            "C++",
+            "Python",
+            "OCaml",
+            "Rust"
+        ],
+        "Python": [
+            "Tensorflow",
+            "PyTorch",
+            "sklearn"
+        ],
+        "Web": [
+            "HTML/CSS",
+            "Javascript"
+        ]
+    },
+    "experience": [
+        {
+            "years": "2022--2023",
+            "position": "Extended position at Inria \\textbf{Saclay, France}, with Jill-Jenn Vie on various research project and for a project in collaboration with Pass Culture.",
+            "description": ""
+        },
+        {
+            "years": "2022",
+            "position": "Fixed term position at Inria \\textbf{Saclay, France}, with Jill-Jenn Vie and in collaboration with Pôle-Emploi (1 year).",
+            "description": "Predicting future employment opportunities using time series tabular data of French hirings from Pôle-Emploi"
+        },
+        {
+            "years": "2021",
+            "position": "Internship at Inria \\textbf{Paris, France}, supervised by Francis Bach (2 months).",
+            "description": "Work on the results of \\textit{Finding Global Minima via Kernel Approximations}."
+        },
+        {
+            "years": "2018",
+            "position": "Internship at Riken AIP \\textbf{Tokyo, Japan}, supervised by Takanori Maehara (5 months).",
+            "description": "Masakazu Ishihata, Takanori Maehara, and Tomas Rigaux. Algorithmic meta-theorems for monotone submodular maximization, 2018, arXiv:1807.04575."
+        },
+        {
+            "years": "2017",
+            "position": "Internship at Université de \\textbf{Liège, Belgium} supervised by Pierre Geurts (2 months).",
+            "description": "Exploring hybrid methods combining neural networks and random forests for supervised learning."
+        }
+    ],
+    "teaching": [
+        {
+            "years": "2021",
+            "position": "Algorithmic lab sessions",
+            "details": "Python in L3 at CentraleSupélec (30 students, 21h)",
+            "location": "Gif-sur-Yvette"
+        },
+        {
+            "years": "2017--present",
+            "position": "Coach",
+            "details": "for ENS teams at the contest",
+            "contest": "International Collegiate Programming Contest"
+        },
+        {
+            "years": "2022",
+            "position": "Coached",
+            "details": "the 6th team in the 2022 World Finals",
+            "contest": "International Collegiate Programming Contest"
+        },
+        {
+            "years": "2014--present",
+            "position": "Assistant coach",
+            "details": "for preparation and selection of the french team at the contest",
+            "contest": "International Olympiad in Informatics"
+        }
+    ],
+    "awards": [
+        {
+            "year": "2018",
+            "rank": "Ranked 56th with Honors at the 2018 ACM ICPC World Finals in Beijing --- China."
+        },
+        {
+            "year": "2017",
+            "rank": "Ranked first at the 2017 ACM ICPC Regionals (SWERC) in Paris --- France"
+        },
+        {
+            "year": "2017",
+            "rank": "Ranked 34th with Honors at the 2017 ACM ICPC World Finals in Rapid City --- South Dakota, USA."
+        },
+        {
+            "year": "2016",
+            "rank": "Ranked first at the 2016 ACM ICPC Regionals (SWERC) in Porto --- Portugal"
+        },
+        {
+            "year": "2016",
+            "rank": "Ranked 2nd at Prologin, the French National Computer Science Contest."
+        },
+        {
+            "year": "2014",
+            "rank": "Member of the French team at the IOI in Taipei --- Taiwan."
+        }
+    ],
+    "bibliography": "cv.bib",
+    "language": [
+        {
+            "language": "French",
+            "level": "Native language",
+            "experience": ""
+        },
+        {
+            "language": "English",
+            "level": "Fluent",
+            "experience": "IGCSE diploma. International option for the Baccalauréat"
+        },
+        {
+            "language": "Japanese",
+            "level": "Learning",
+            "experience": "Studied as a second language for 2 years"
+        },
+        {
+            "language": "Italian",
+            "level": "Intermediate",
+            "experience": "Studied as a second language for 9 years"
+        }
+    ]
+}
