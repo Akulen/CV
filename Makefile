@@ -4,4 +4,4 @@ pdf:
 	pdflatex cv.tex
 
 clean:
-	rm -f cv.{4tc,aux,bbl,bib,blg,log,out,tmp,xref}
+	rm -f cv.{4tc,aux,bbl,blg,log,out,tmp,xref}
