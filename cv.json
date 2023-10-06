@@ -17,6 +17,12 @@
     },
     "education": [
         {
+            "years": "2023--pursuing",
+            "name": "PhD in Computer Science",
+            "place": "Kashima Lab",
+            "location": "Kyoto University"
+        },
+        {
             "years": "2016--2021",
             "name": "Diplome de l'ENS (DENS)",
             "place": "École normale supérieure",
@@ -74,7 +80,7 @@
     "experience": [
         {
             "years": "2022--2023",
-            "position": "Extended position at Inria \\textbf{Saclay, France}, with Jill-Jenn Vie on various research project and for a project in collaboration with Pass Culture.",
+            "position": "Extended position at Inria \\textbf{Saclay, France}, with Jill-Jenn Vie on various research projects.",
             "description": ""
         },
         {
