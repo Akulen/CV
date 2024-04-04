@@ -68,6 +68,7 @@
             "Rust"
         ],
         "Python": [
+            "Jax",
             "Tensorflow",
             "PyTorch",
             "sklearn"
@@ -124,7 +125,7 @@
             "contest": "International Collegiate Programming Contest"
         },
         {
-            "years": "2014--present",
+            "years": "2014--2023",
             "position": "Assistant coach",
             "details": "for preparation and selection of the french team at the contest",
             "contest": "International Olympiad in Informatics"
