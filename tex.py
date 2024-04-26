@@ -22,6 +22,7 @@ r"""\documentclass[11pt,a4paper,sans]{moderncv}
     \strut%
     \ifx&#7&%
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+\setlength{\hintscolumnwidth}{2.4cm}
 
 % personal data""",
     'documentStart':
