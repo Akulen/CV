@@ -59,6 +59,7 @@ if args.format == 'pdf':
         print('\\address{' + cv['profile']['address']['road'] + "}{" + cv['profile']['address']['postCode'] + ' ' + cv['profile']['address']['city'] + ', ' + cv['profile']['address']['country'] + "}")
         print('\\phone[mobile]{' + cv['profile']['phone'] + '}')
         print('\\email{' + cv['profile']['email'] + '}')
+        print('\\homepage{' + cv['profile']['homepage'] + '}')
         print('\\social[github]{' + cv['profile']['social']['github'] + '}')
 
         print(tex.snips['documentStart'])
