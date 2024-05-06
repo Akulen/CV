@@ -78,6 +78,8 @@ if args.format == 'pdf':
             if exp['description'] != '':
                 print('    \\cvitem{}{' + exp['description'] + '}')
 
+        print('\n\\newpage\n')
+
         print('\n\\section{Teaching}')
         for tea in cv['teaching']:
             if 'location' in tea:
