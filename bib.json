@@ -26,5 +26,14 @@
         "booktitle": "Proceedings of IEEE BigData 2022, in press",
         "url": "https://jiji.cat/bigdata/vie2022vfm.pdf",
         "year": "2022"
+    },
+    {
+        "name": "rigaux_enhancing_2024",
+        "type": "misc",
+        "author": "Tomas Rigaux and Hisashi Kashima",
+        "title": "Enhancing Chess Reinforcement Learning with Graph Representation",
+        "year": "2024",
+        "eprint": "arXiv:2410.23753",
+        "url": "http://arxiv.org/abs/2410.23753"
     }
 ]

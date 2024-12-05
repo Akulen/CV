@@ -13,4 +13,4 @@ cv.bib:
 	python3 convert.py bib
 
 clean:
-	rm -f cv.{4tc,aux,bbl,blg,log,out,tmp,xref,tex}
+	rm -f cv.{4tc,aux,bbl,blg,log,out,tmp,xref,tex,bib}
