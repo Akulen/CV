@@ -29,11 +29,14 @@
     },
     {
         "name": "rigaux_enhancing_2024",
-        "type": "misc",
+        "type": "inproceedings",
         "author": "Tomas Rigaux and Hisashi Kashima",
         "title": "Enhancing Chess Reinforcement Learning with Graph Representation",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "doi": "10.52202/079017-0006",
+        "pages": "197--218",
+        "publisher": "Curran Associates, Inc.",
         "year": "2024",
-        "eprint": "arXiv:2410.23753",
-        "url": "http://arxiv.org/abs/2410.23753"
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/008a16ead32f932b711788c276890456-Paper-Conference.pdf"
     }
 ]
