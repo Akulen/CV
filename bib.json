@@ -38,5 +38,14 @@
         "publisher": "Curran Associates, Inc.",
         "year": "2024",
         "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/008a16ead32f932b711788c276890456-Paper-Conference.pdf"
+    },
+    {
+        "name": "rigaux_predicting_2026",
+        "type": "inproceedings",
+        "author": "Tomas Rigaux and Hisashi Kashima",
+        "title": "Predicting {Drafted} {Deck} {Strength} for “{Magic}: the {Gathering}”",
+        "booktitle": "2026 {IEEE} {Conference} on {Games} ({CoG})",
+        "year": "2026",
+        "url": "https://arxiv.org/abs/2607.04782"
     }
 ]
