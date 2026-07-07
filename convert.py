@@ -32,10 +32,14 @@ def oxfordcomma(s):
 def highlightme(s):
     return s.replace("Tomas Rigaux", "<em>Tomas Rigaux</em>")
 
+def clean(s):
+    return re.sub("[{}]", "", s)
+
 def opt(d, k, pref="", em=False):
     if k not in d or d[k] == "":
         return ""
-    return ", " + pref + " " + (f'<em>{d[k]}</em>' if em else d[k])
+    v = clean(d[k])
+    return ", " + pref + " " + (f'<em>{v}</em>' if em else v)
 
 parser = ArgumentParser(
     prog='CV Converter',
@@ -124,7 +128,7 @@ elif args.format == 'bib':
                 print(f'      <th scope="row"><a href="{url}">[{i}]</a></th>')
             else:
                 print(f'      <th scope="row">[{i}]</th>')
-            print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {entry["title"]}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
+            print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {clean(entry["title"])}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
             print('    </tr>')
         print(html.sectionEnd())
 
