@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 import json
 import re
 import sys
+import html_utils as hu
 
 def html2dash(s):
     return s.replace('--', '–')
@@ -113,71 +114,73 @@ elif args.format == 'bib':
                     print(f'    {key} = {{{entry[key]}}},')
             print('}')
 
+    def make_entry(i, entry, fancy=False):
+        print('    <tr>')
+        url = None
+        if 'address' in entry:
+            url = entry['address']
+        elif 'url' in entry:
+            url = entry['url']
+        print('      <th scope="row">', end='')
+        if url:
+            print(f'<a href="{url}">', end='')
+        if url and fancy:
+            print('<i class="fa-solid fa-file-pdf"></i>', end='')
+        else:
+            print(f'[{i}]', end='')
+        if url:
+            print('</a>', end='')
+        print('</th>')
+        print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. ',end='')
+        print(f'{clean(entry["title"])}', end='')
+        print(f'{opt(entry, "howpublished")}', end='')
+        print(f'{opt(entry, "booktitle", "In", True)}, ', end='')
+        print(f'{entry["year"]}', end='')
+        print(f'{opt(entry, "eprint")}.</td>')
+        print('    </tr>')
+
     with open('biblio.html', 'w') as f:
         sys.stdout = f
-        import html
-        print(html.sectionHead('Publications'))
+        print(hu.sectionHead('Publications'))
         for i, entry in enumerate(bib):
-            print('    <tr>')
-            url = None
-            if 'address' in entry:
-                url = entry['address']
-            elif 'url' in entry:
-                url = entry['url']
-            if url:
-                print(f'      <th scope="row"><a href="{url}">[{i}]</a></th>')
-            else:
-                print(f'      <th scope="row">[{i}]</th>')
-            print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {clean(entry["title"])}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
-            print('    </tr>')
-        print(html.sectionEnd())
+            make_entry(i, entry)
+        print(hu.sectionEnd())
 
     with open('pubs.html', 'w') as f:
         sys.stdout = f
-        import html
 
         entries = {}
         for entry in bib:
             if entry['year'] not in entries:
                 entries[entry['year']] = []
             entries[entry['year']].append(entry)
+        i = 0
         for year in sorted(entries.keys(), reverse=True):
-            print(html.sectionHead(year))
+            print(hu.sectionHead(year))
             for entry in entries[year]:
-                print('    <tr>')
-                url = None
-                if 'address' in entry:
-                    url = entry['address']
-                elif 'url' in entry:
-                    url = entry['url']
-                if url:
-                    print(f'      <th scope="row"><a href="{url}"><i class="fa-solid fa-file-pdf"></i></a></th>')
-                else:
-                    print(f'      <th scope="row">[{i}]</th>')
-                print(f'      <td>{highlightme(oxfordcomma(entry["author"]))}. {entry["title"]}{opt(entry, "howpublished")}{opt(entry, "booktitle", "In", True)}, {entry["year"]}{opt(entry, "eprint")}.</td>')
-                print('    </tr>')
-            print(html.sectionEnd())
+                make_entry(i, entry, fancy=True)
+            print(hu.sectionEnd())
+            i += 1
 elif args.format == 'html':
     with open('cv.html', 'w') as f:
         sys.stdout = f
-        import html
-        print(html.sectionHead('Education'))
+        print(hu.sectionHead('Education'))
         for ed in cv['education']:
             print('    <tr>')
             print(f'      <th scope="row">{html2dash(ed["years"])}</th>')
             print(f'      <td><b>{html3dash(ed["name"])}</b>, <em>{ed["place"]}</em>{fand(ed["location"])}</li>')
             print('    </tr>')
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
-        print(html.sectionHead('Skills'))
+        print(hu.sectionHead('Skills'))
         for tp, ls in cv['skills'].items():
             print('    <tr>')
             print(f'      <th scope="row">{tp}</th>')
             print(f'      <td>{", ".join(ls)}</td>')
             print('    </tr>')
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
-        print(html.sectionHead('Experience'))
+        print(hu.sectionHead('Experience'))
         first = True
         for exp in cv['experience']:
             print(f'    <tr{borderNotFirst(first)}>')
@@ -190,9 +193,9 @@ elif args.format == 'html':
                 print(f'      <td>{htmltexem(exp["description"])}</td>')
                 print('    </tr>')
             first = False
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
-        print(html.sectionHead('Teaching'))
+        print(hu.sectionHead('Teaching'))
         for tea in cv['teaching']:
             print('    <tr>')
             print(f'      <th scope="row">{html2dash(tea["years"])}</th>')
@@ -201,25 +204,25 @@ elif args.format == 'html':
             else:
                 print(f'      <td><b>{tea["position"]}</b> <em>{tea["details"]}</em> {tea["contest"]}')
             print('    </tr>')
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
-        print(html.sectionHead('Competitions and Awards'))
+        print(hu.sectionHead('Competitions and Awards'))
         for awa in cv['awards']:
             print('    <tr>')
             print(f'      <th scope="row">{html2dash(awa["year"])}</th>')
             print(f'      <td>{html3dash(awa["rank"])}</td>')
             print('    </tr>')
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
         print("{% include 'biblio.html' %}")
 
-        print(html.sectionHead('Language'))
+        print(hu.sectionHead('Language'))
         for lan in cv['language']:
             print('    <tr>')
             print(f'      <th scope="row">{html2dash(lan["language"])}</th>')
             print(f'      <td>{lan["level"]}<span class="experience">{lan["experience"]}</span></td>')
             print('    </tr>')
-        print(html.sectionEnd())
+        print(hu.sectionEnd())
 
         print('''<p style="float: right"><a href="{{ url_for('static', filename='cv.pdf') }}" style="text-decoration: none;">Download</a> the pdf</p>''')
 else:
