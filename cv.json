@@ -18,7 +18,7 @@
     },
     "education": [
         {
-            "years": "2023--pursuing",
+            "years": "2023--2026",
             "name": "PhD in Computer Science",
             "place": "Kashima Lab",
             "location": "Kyoto University"
@@ -80,6 +80,11 @@
         ]
     },
     "experience": [
+        {
+            "years": "2026--Present",
+            "position": "Postdoctoral Researcher at Kyoto University",
+            "description": "Continuing machine learning and graph theory research"
+        },
         {
             "years": "2022--2023",
             "position": "Extended position at Inria \\textbf{Saclay, France}, with Jill-Jenn Vie on various research projects.",
